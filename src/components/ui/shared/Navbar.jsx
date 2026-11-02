@@ -8,23 +8,37 @@ import searchIcon from "../../../assets/icons/akar-icons_search.png";
 import heartIcon from "../../../assets/icons/akar-icons_heart.png";
 import cartIcon from "../../../assets/icons/ant-design_shopping-cart-outlined.png";
 
-const navLinks = [
+const NAV_LINKS = [
   { name: "Home", path: "/" },
   { name: "Shop", path: "/shop" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
+const ACTION_ITEMS = [
+  { label: "Profile", icon: userIcon, ariaLabel: "Account" },
+  { label: "Search", icon: searchIcon, ariaLabel: "Search" },
+  { label: "Saved", icon: heartIcon, ariaLabel: "Wishlist" },
+  { label: "Cart", icon: cartIcon, ariaLabel: "Cart" },
+];
+
+// Reusable action button for Desktop header
+const NavIconButton = ({ icon, ariaLabel, onClick, className = "" }) => (
+  <button
+    type="button"
+    aria-label={ariaLabel}
+    onClick={onClick}
+    className={`p-1 cursor-pointer hover:opacity-75 transition-opacity ${className}`}
+  >
+    <img src={icon} alt={ariaLabel} className="w-6 h-6 object-contain" />
+  </button>
+);
+
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
     <>
@@ -37,7 +51,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-10 xl:gap-14">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
@@ -54,48 +68,25 @@ const Navbar = () => {
 
           {/* Desktop Action Icons */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <button
-              type="button"
-              aria-label="Account"
-              className="p-1 cursor-pointer hover:opacity-75 transition-opacity"
-            >
-              <img src={userIcon} alt="Account" className="w-6 h-6 object-contain" />
-            </button>
-            <button
-              type="button"
-              aria-label="Search"
-              className="p-1 cursor-pointer hover:opacity-75 transition-opacity"
-            >
-              <img src={searchIcon} alt="Search" className="w-6 h-6 object-contain" />
-            </button>
-            <button
-              type="button"
-              aria-label="Wishlist"
-              className="p-1 cursor-pointer hover:opacity-75 transition-opacity"
-            >
-              <img src={heartIcon} alt="Wishlist" className="w-6 h-6 object-contain" />
-            </button>
-            <button
-              type="button"
-              aria-label="Cart"
-              className="p-1 cursor-pointer hover:opacity-75 transition-opacity"
-            >
-              <img src={cartIcon} alt="Cart" className="w-6 h-6 object-contain" />
-            </button>
+            {ACTION_ITEMS.map((item) => (
+              <NavIconButton
+                key={item.label}
+                icon={item.icon}
+                ariaLabel={item.ariaLabel}
+              />
+            ))}
           </div>
 
           {/* Mobile & Tablet Right Controls */}
-          <div className="flex lg:hidden items-center gap-3 sm:gap-4">
-            {/* Quick-access Cart Icon on mobile/tablet */}
-            <button
-              type="button"
-              aria-label="Cart"
-              className="p-2 cursor-pointer hover:opacity-75 transition-opacity"
-            >
-              <img src={cartIcon} alt="Cart" className="w-6 h-6 object-contain" />
-            </button>
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3">
+            {/* Quick Cart button for mobile header */}
+            <NavIconButton
+              icon={cartIcon}
+              ariaLabel="Cart"
+              className="p-2"
+            />
 
-            {/* Three Dot Menu Toggle Button */}
+            {/* Three-Dot Menu Trigger */}
             <button
               type="button"
               onClick={toggleSidebar}
@@ -142,7 +133,7 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <nav className="flex flex-col p-5 gap-2">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
@@ -159,47 +150,6 @@ const Navbar = () => {
               </NavLink>
             ))}
           </nav>
-        </div>
-
-        {/* Sidebar Footer with Action Icons */}
-        <div className="hidden p-5 border-t border-gray-100 bg-gray-50/50">
-          <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-3">
-            Quick Actions
-          </p>
-          <div className="grid grid-cols-4 gap-2 text-center">
-            <button
-              type="button"
-              aria-label="Account"
-              className="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-gray-100 shadow-2xs hover:bg-gray-50 cursor-pointer transition-colors"
-            >
-              <img src={userIcon} alt="Account" className="w-5 h-5 object-contain" />
-              <span className="text-[11px] text-gray-600 mt-1">Profile</span>
-            </button>
-            <button
-              type="button"
-              aria-label="Search"
-              className="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-gray-100 shadow-2xs hover:bg-gray-50 cursor-pointer transition-colors"
-            >
-              <img src={searchIcon} alt="Search" className="w-5 h-5 object-contain" />
-              <span className="text-[11px] text-gray-600 mt-1">Search</span>
-            </button>
-            <button
-              type="button"
-              aria-label="Wishlist"
-              className="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-gray-100 shadow-2xs hover:bg-gray-50 cursor-pointer transition-colors"
-            >
-              <img src={heartIcon} alt="Wishlist" className="w-5 h-5 object-contain" />
-              <span className="text-[11px] text-gray-600 mt-1">Saved</span>
-            </button>
-            <button
-              type="button"
-              aria-label="Cart"
-              className="flex flex-col items-center justify-center p-3 rounded-lg bg-white border border-gray-100 shadow-2xs hover:bg-gray-50 cursor-pointer transition-colors"
-            >
-              <img src={cartIcon} alt="Cart" className="w-5 h-5 object-contain" />
-              <span className="text-[11px] text-gray-600 mt-1">Cart</span>
-            </button>
-          </div>
         </div>
       </aside>
     </>
