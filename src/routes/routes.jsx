@@ -15,6 +15,14 @@ const router = createBrowserRouter([
             {
                 path: "/shop",
                 element: <ShopPage />
+            },
+            {
+                path: "/about",
+                element: <div className="w-full h-screen text-4xl text-center">This is About Page</div>
+            },
+            {
+                path: "/contact",
+                element: <div className="w-full h-screen text-4xl text-center">This is Contact Page</div>
             }
         ]
     }
