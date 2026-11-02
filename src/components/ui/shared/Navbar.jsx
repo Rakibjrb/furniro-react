@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
 import logo from "../../../assets/images/Logo.png";
 import userIcon from "../../../assets/icons/mdi_account-alert-outline.png";
 import searchIcon from "../../../assets/icons/akar-icons_search.png";
@@ -40,7 +42,8 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-base font-medium transition-colors hover:text-black ${isActive ? "text-black font-semibold" : "text-[#333333]"
+                  `text-base font-medium transition-colors hover:text-black ${
+                    isActive ? "text-black font-semibold" : "text-[#333333]"
                   }`
                 }
               >
@@ -99,16 +102,7 @@ const Navbar = () => {
               aria-label="Open menu"
               className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="5" r="2" />
-                <circle cx="12" cy="12" r="2" />
-                <circle cx="12" cy="19" r="2" />
-              </svg>
+              <HiOutlineDotsVertical className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -116,16 +110,18 @@ const Navbar = () => {
 
       {/* Backdrop for Mobile / Tablet Sidebar */}
       <div
-        className={`fixed inset-0 bg-black/40 backdrop-blur-xs z-50 transition-opacity duration-300 lg:hidden ${isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 bg-black/40 backdrop-blur-xs z-50 transition-opacity duration-300 lg:hidden ${
+          isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
         onClick={closeSidebar}
         aria-hidden="true"
       />
 
       {/* Sidebar Drawer */}
       <aside
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between ${
+          isSidebarOpen ? "translate-x-0" : "translate-x-full"
+        }`}
         aria-label="Mobile Navigation"
       >
         <div>
@@ -140,16 +136,7 @@ const Navbar = () => {
               aria-label="Close menu"
               className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-black transition-colors cursor-pointer"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <IoClose className="w-6 h-6" />
             </button>
           </div>
 
@@ -161,9 +148,10 @@ const Navbar = () => {
                 to={link.path}
                 onClick={closeSidebar}
                 className={({ isActive }) =>
-                  `px-4 py-3 rounded-lg text-base font-medium transition-colors ${isActive
-                    ? "bg-[#FAF3EA] text-[#B88E2F] font-semibold"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-black"
+                  `px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                    isActive
+                      ? "bg-[#FAF3EA] text-[#B88E2F] font-semibold"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-black"
                   }`
                 }
               >
