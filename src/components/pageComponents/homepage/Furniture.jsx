@@ -1,4 +1,6 @@
-import bedImg from "../../../assets/images/image-bed.png";
+import bedroomImg from "../../../assets/images/image-bed.png";
+import diningImg from "../../../assets/images/image-dining.png";
+import livingImg from "../../../assets/images/image-living.png";
 
 const Furniture = () => {
   return (
@@ -22,14 +24,14 @@ const Furniture = () => {
             <div className="grid grid-cols-12 gap-3 sm:gap-4 items-end">
               <div className="col-span-3 sm:col-span-4 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={bedroomImg}
                   alt="Furniture setup"
                   className="w-full h-48 sm:h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
               </div>
               <div className="col-span-9 sm:col-span-8 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={diningImg}
                   alt="Furniture workspace setup"
                   className="w-full h-40 sm:h-52 md:h-60 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
@@ -40,14 +42,14 @@ const Furniture = () => {
             <div className="grid grid-cols-12 gap-3 sm:gap-4 items-start">
               <div className="col-span-4 sm:col-span-5 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={livingImg}
                   alt="Furniture chair setup"
                   className="w-full h-48 sm:h-60 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
               </div>
               <div className="col-span-8 sm:col-span-7 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={bedroomImg}
                   alt="Furniture stool and decor"
                   className="w-full h-40 sm:h-48 md:h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
@@ -58,7 +60,7 @@ const Furniture = () => {
           {/* Center Feature Column */}
           <div className="md:col-span-2 overflow-hidden group flex justify-center">
             <img
-              src={bedImg}
+              src={diningImg}
               alt="Dining room centerpiece"
               className="w-full h-64 sm:h-80 md:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm shadow-xs"
             />
@@ -70,14 +72,14 @@ const Furniture = () => {
             <div className="grid grid-cols-12 gap-3 sm:gap-4 items-end">
               <div className="col-span-7 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={livingImg}
                   alt="Bedroom furniture setup"
                   className="w-full h-48 sm:h-64 md:h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
               </div>
               <div className="col-span-5 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={bedroomImg}
                   alt="Dining table brick wall setup"
                   className="w-full h-56 sm:h-72 md:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
@@ -88,14 +90,14 @@ const Furniture = () => {
             <div className="grid grid-cols-12 gap-3 sm:gap-4 items-start">
               <div className="col-span-5 sm:col-span-6 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={diningImg}
                   alt="Framed wall art setup"
                   className="w-full h-40 sm:h-48 md:h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
               </div>
               <div className="col-span-7 sm:col-span-6 overflow-hidden group">
                 <img
-                  src={bedImg}
+                  src={livingImg}
                   alt="Kitchen rack setup"
                   className="w-full h-40 sm:h-48 md:h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500 rounded-sm"
                 />
